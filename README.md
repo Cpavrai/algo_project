@@ -3,8 +3,8 @@
 Project for Epitech's module Algorithm
 
 # Tools used
-	- Pyhton
-		- numpy
+- Python (2.7+)
+	- numpy
 
 # Set up
-	```pip install -r requirements.txt```
+	pip install -r requirements.txt
