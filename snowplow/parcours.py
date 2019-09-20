@@ -1,12 +1,23 @@
+from __future__ import division
+
 import numpy
 import time
+import math
 
 def average(this_list):
-	res = 0
+	'''
+		computes average distance done by snowplow
+		and returns it
+	'''
+	distance = 0
+	tmp_house = 0
+	total_res = 0
 
 	for house in this_list:
-		res += abs(house)
-	return res / len(this_list)
+		distance += abs(house - tmp_house)
+		total_res += distance
+		tmp_house = house
+	return total_res / len(this_list)
 
 def parcours(this_list):
 	'''
@@ -41,11 +52,12 @@ def default_parcours(this_list):
 		res.append(tmp_distance)
 		x = tmp_distance
 		tmp_list.remove(x)
-	print("Distance from default : {0}".format(total_distance))
-	print("Average for default : {0}".format(total_distance / len(this_list)))
+	print("Distance totale from default : {0}".format(total_distance))
+	print("Average for default : {0:.2f}".format(average(res)))
 	return res
 
-randlist = numpy.random.normal(0,1000,1000)
+# randlist = numpy.random.normal(0,1000,1000)
+randlist = [-1, 3, 7, -10]
 
 d_p = default_parcours(randlist)
 
