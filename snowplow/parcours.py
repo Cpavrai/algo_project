@@ -1,22 +1,5 @@
 from __future__ import division
-
-import numpy
-import math
-
-def average(this_list):
-	'''
-		computes average distance done by snowplow
-		and returns it
-	'''
-	distance = 0
-	tmp_house = 0
-	total_res = 0
-
-	for house in this_list:
-		distance += abs(house - tmp_house)
-		total_res += distance
-		tmp_house = house
-	return total_res / len(this_list)
+import average
 
 def density(this_list):
 	if len(this_list) == 1:
@@ -46,7 +29,7 @@ def get_most_worth(this_list, index):
 	else:
 		return supp_list[0]
 
-def parcours(this_list):
+def parcours(this_list, show=True):
 	'''
 		return list of sorted houses in the relevant order.
 	'''
@@ -67,12 +50,13 @@ def parcours(this_list):
 		# We get this point out from the list
 		tmp_list.remove(next_nb)
 
-	print("Distance from new : {0}".format(total_distance))
-	print("Average for new : {0:.2f}".format(average(res)))
+	if show:
+		print("Distance from new : {0}".format(total_distance))
+		print("Average for new : {0:.2f}".format(average.compute(res)))
 	return res
 
 
-def default_parcours(this_list):
+def default_parcours(this_list, show=True):
 	'''
 		same as parcours, but not optimized (used for comparing)
 		it will just reach the nearest point
@@ -96,16 +80,7 @@ def default_parcours(this_list):
 		res.append(tmp_distance)
 		x = tmp_distance
 		tmp_list.remove(x)
-	print("Distance totale from default : {0}".format(total_distance))
-	print("Average for default : {0:.2f}".format(average(res)))
+	if show:
+		print("Distance totale from default : {0}".format(total_distance))
+		print("Average for default : {0:.2f}".format(average.compute(res)))
 	return res
-
-randlist = numpy.random.normal(0,1000,1000)
-# randlist = [-15, -10, -12, 3, -1, 11]
-
-d_p = default_parcours(randlist)
-n_p = parcours(randlist)
-# print("Default : {0}".format(d_p))
-# print("Ours    : {0}".format(n_p))
-
-print("Is it 90% worth ? : {0} [{1:.2f} %]".format(average(n_p)/average(d_p)<0.9, average(n_p)/average(d_p) * 100))
