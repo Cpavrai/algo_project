@@ -3,7 +3,7 @@ import parcours
 import average
 
 nb_true = 0
-for i in xrange(1,10):
+for i in xrange(0,10):
 	randlist = numpy.random.normal(0,1000,1000)
 	d_p = parcours.default_parcours(randlist, False)
 	n_p = parcours.parcours(randlist, False)
