@@ -1,5 +1,3 @@
-# coding: utf-8
-
 def get(vertices):
 	'''
 		function asking as parameter the list of vertices from graph
