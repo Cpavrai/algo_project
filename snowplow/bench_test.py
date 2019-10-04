@@ -8,7 +8,8 @@ for i in xrange(0,10):
 	d_p = parcours.default_parcours(randlist, False)
 	n_p = parcours.parcours(randlist, False)
 	worth_ratio = average.compute(n_p)/average.compute(d_p)
-	print("Is it 90% worth ? : {0} [{1:.2f} %]".format(worth_ratio < 0.9, worth_ratio * 100.0))
+	print("Is it 90% worth ? : {0} [{1:.2f} %]"
+		.format(worth_ratio < 0.9, worth_ratio * 100.0))
 	if worth_ratio < 0.9:
 		nb_true += 1
 
