@@ -1,5 +1,11 @@
 import line_graph
 
+'''
+	"ensemble" variable will contain all the vertices from the graph
+	by the formate following : a tuple containing two variables, the
+	two ids of the edges from this vertex
+'''
+
 ensemble = [
 	[1, 2],
 	[1, 3],
@@ -11,5 +17,5 @@ ensemble = [
 
 result = line_graph.get(ensemble)
 
-for r in result:
-	print(r)
+for elem in result:
+	print(elem)
