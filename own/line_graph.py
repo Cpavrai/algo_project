@@ -11,6 +11,6 @@ def get(vertices):
 		index.sort()
 		for tmp_elem in vertices:
 			tmp_elem.sort()
-			if tmp_elem[0] == index[0] or tmp_elem[1] == index[1] or tmp_elem[0] == index[1] or tmp_elem[1] == index[0]:
+			if any(elem in tmp_elem  for elem in index):
 				res.append([index, tmp_elem])
 	return res
